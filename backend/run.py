@@ -180,10 +180,11 @@ if __name__ == "__main__":
     print("")
 
     # 2. Run API server (Persistence Loop: Trend 2026)
-    print("[Server] Starting FastAPI...")
+    port = int(os.environ.get("PORT", 8000))
+    print(f"[Server] Starting FastAPI on port {port}...")
     while True:
         try:
-            uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=False)
+            uvicorn.run("app.main:app", host="0.0.0.0", port=port, reload=False)
         except Exception as e:
             print(f"[Server] Restarting due to error: {e}")
             import time
