@@ -4,8 +4,8 @@ services:
     env: docker
     region: oregon 
     plan: starter # Starter or standard paid plans needed for long-running AI threads without spin-down.
-    dockerfilePath: ./backend/Dockerfile
-    rootDir: ./backend
+    dockerfilePath: Dockerfile
+    rootDir: backend
     startCommand: python run.py
     healthCheckPath: /health
     disk:
