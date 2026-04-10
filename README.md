@@ -1,3 +1,12 @@
+---
+title: Smart CCTV AI Backend
+emoji: 📹
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+---
+
 # Smart CCTV Analytics Platform
 
 A unified AI surveillance platform bringing together edge AI processing, face recognition, and real-time frontend monitoring.

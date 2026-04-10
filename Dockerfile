@@ -14,14 +14,14 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Copy requirements and install
-COPY requirements.txt .
+COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the backend codebase
-COPY . .
+# Copy the rest of the backend codebase from the backend directory
+COPY backend/ .
 
-# Expose standard production port
-EXPOSE 8000
+# Expose Hugging Face default port
+EXPOSE 7860
 
 # Start Uvicorn production server
 CMD ["python", "run.py"]
