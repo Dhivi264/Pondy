@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: smart-cctv-ai-backend
+    env: docker
+    region: oregon 
+    plan: starter # Starter or standard paid plans needed for long-running AI threads without spin-down.
+    dockerfilePath: ./backend/Dockerfile
+    rootDir: ./backend
+    startCommand: python run.py
+    healthCheckPath: /health
+    disk:
+      name: smart-cctv-recordings 
+      mountPath: /app/data
+      sizeGB: 50 # Generous block storage to store the .mp4 files persistently
+    envVars:
+      - key: SMTP_HOST
+        value: "" # Fill in the Render dashboard
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_USER
+        value: "" # Fill in the Render dashboard
+      - key: SMTP_PASS
+        value: "" # Fill in the Render dashboard
+      - key: ADMIN_EMAIL
+        value: "" # Fill in the Render dashboard
